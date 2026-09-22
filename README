@@ -1,0 +1,198 @@
+# Expense Tracker
+
+A full-stack expense tracking application built with React and FastAPI. The application allows users to manage expenses, organize them by category, and view expense information through a simple web interface.
+
+## Tech Stack
+
+### Frontend
+
+* React.js
+* Vite
+* Axios
+* JavaScript
+* CSS
+
+### Backend
+
+* FastAPI
+* Python
+* SQLAlchemy
+* Pydantic
+* SQLite/MySQL
+
+## Frontend Setup
+
+Navigate to the frontend directory:
+
+```bash
+cd frontend
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Install Axios if it is not already included:
+
+```bash
+npm install axios
+```
+
+Start the React development server:
+
+```bash
+npm run dev
+```
+
+The frontend will normally run at:
+
+```text
+http://localhost:5173
+```
+
+## Backend Setup
+
+Navigate to the backend directory:
+
+```bash
+cd backend
+```
+
+Create a Python virtual environment:
+
+```bash
+python -m venv venv
+```
+
+Activate the virtual environment on Windows:
+
+```bash
+venv\Scripts\activate
+```
+
+Install the required dependencies:
+
+```bash
+pip install fastapi uvicorn sqlalchemy pydantic
+```
+
+Start the FastAPI server:
+
+```bash
+uvicorn main:app --reload
+```
+
+The backend will run at:
+
+```text
+http://localhost:8000
+```
+
+FastAPI interactive documentation:
+
+```text
+http://localhost:8000/docs
+```
+
+## Features
+
+* Add expenses
+* Categorize expenses
+* View all expenses
+* Store expense amount, note, date, and category
+* REST API using FastAPI
+* React frontend integrated with FastAPI backend
+* CORS configuration for frontend-backend communication
+* Input validation using Pydantic
+* Database operations using SQLAlchemy
+
+## Project Structure
+
+```text
+expense-tracker/
+│
+├── frontend/
+│   ├── src/
+│   ├── package.json
+│   └── vite.config.js
+│
+├── backend/
+│   ├── main.py
+│   ├── database.py
+│   ├── models.py
+│   └── schemas.py
+│
+├── README.md
+└── .gitignore
+```
+
+## API Endpoints
+
+### Get Expenses
+
+```http
+GET /getexpense
+```
+
+Returns all expenses along with their category names.
+
+Example response:
+
+```json
+{
+  "expense": [
+    {
+      "id": 1,
+      "note": "Lunch",
+      "amount": 200,
+      "date": "2026-09-22",
+      "category": "Food"
+    }
+  ]
+}
+```
+
+### Add Expense
+
+```http
+POST /addexpense
+```
+
+Creates a new expense with its category, note, amount, and date.
+
+## CORS Configuration
+
+The FastAPI backend is configured to allow requests from the React development server:
+
+```python
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+```
+
+## Environment Variables
+
+If environment variables are used, create a `.env` file locally.
+
+Do not commit sensitive information such as:
+
+```text
+.env
+database credentials
+API keys
+secret keys
+```
+
+## AI Tools Usage
+
+I used ChatGPT to assist with FastAPI, SQLAlchemy, Pydantic, React, Axios, and debugging during development. I reviewed and adapted the suggestions to fit my project requirements, and rejected or modified suggestions when they did not match my implementation or expected behavior.
+
+## License
+
+This project is for demonstration and evaluation purposes.
