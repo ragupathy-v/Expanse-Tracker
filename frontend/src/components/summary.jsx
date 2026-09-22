@@ -7,7 +7,7 @@ function Summary() {
 
   const fetchSummary = async () => {
     try {
-      const res = await axios.get("http://127.0.0.1:8000/summary")
+      const res = await axios.get("https://expanse-tracker-fobl.onrender.com/summary")
       setSummary(res.data)
       console.log(res)
     } catch (err) {

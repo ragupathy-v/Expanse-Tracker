@@ -8,7 +8,7 @@ function App() {
   const[expense,setExpense] = useState([])
 
   const fetchExpense=async()=>{
-      const res= await axios.get("http://127.0.0.1:8000/getexpense")
+      const res= await axios.get("https://expanse-tracker-fobl.onrender.com/getexpense")
       setExpense(res.data.expense)
       console.log(res.data.expense)      
     }
